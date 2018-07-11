@@ -3,7 +3,7 @@ const flickrRoute = express.Router();
 
 const flickrCtrl = require('../controllers/flickr-controller');
 
-flickrRoute.get('/flickrs-echo', [flickrCtrl.ListallFlickr]);
 flickrRoute.get('/flickrs', [flickrCtrl.GetFlickr]);
+flickrRoute.post('/flickrs/search', [flickrCtrl.GetFlickr]);
 
 module.exports = flickrRoute;

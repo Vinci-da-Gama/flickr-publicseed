@@ -4,12 +4,6 @@ var xmlTojs = require('xml2js').parseString;
 const resCode = require('../../consts/responseCode');
 const reformat = require('../../helpers/response/reformat');
 
-const ListallFlickr = async (req, res, next) => {
-	res.json({
-		hi: 'hi'
-	});
-};
-
 const GetFlickr = async(req, res, next) => {
     await axios.get('https://api.flickr.com/services/feeds/photos_public.gne')
         .then(resp => {
@@ -31,8 +25,12 @@ const GetFlickr = async(req, res, next) => {
 };
 
 
+const SearchByTerm = async(req, res, next) => {
+};
+
+
 
 module.exports = {
-	ListallFlickr,
-	GetFlickr
+    GetFlickr,
+    SearchByTerm
 };
