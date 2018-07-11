@@ -4,6 +4,6 @@ const flickrRoute = express.Router();
 const flickrCtrl = require('../controllers/flickr-controller');
 
 flickrRoute.get('/flickrs-echo', [flickrCtrl.ListallFlickr]);
-flickrRoute.post('/flickrs', [flickrCtrl.CreateFlickr]);
+flickrRoute.get('/flickrs', [flickrCtrl.GetFlickr]);
 
 module.exports = flickrRoute;

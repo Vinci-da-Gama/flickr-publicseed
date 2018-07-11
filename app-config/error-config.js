@@ -1,3 +1,5 @@
+const resCode = require('../consts/responseCode');
+
 exports.initErrorHandler = (app) => {
 	
 	'use strict';
@@ -14,8 +16,9 @@ exports.initErrorHandler = (app) => {
 		res.status(err.status || 500);
 		// development error handler (will print stacktrace)
 		res.json({
-			error: (req.app.get('env') === 'development' || req.app.get('env') === 'devmlab') ? err : {},
-			message: err.message
+			status: err.status ? err.status : '500',
+			message: err.message,
+			responseCode: resCode.failed
 		});
 	});
 }
