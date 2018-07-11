@@ -1,4 +1,5 @@
 const axios = require('axios');
+var xmlTojs = require('xml2js').parseString;
 
 const resCode = require('../../consts/responseCode');
 const reformat = require('../../helpers/response/reformat');
@@ -9,14 +10,19 @@ const ListallFlickr = async (req, res, next) => {
 	});
 };
 
-const GetFlickr = (req, res, next) => {
-    axios.get('https://api.flickr.com/services/feeds/photos_public.gne')
+const GetFlickr = async(req, res, next) => {
+    await axios.get('https://api.flickr.com/services/feeds/photos_public.gne')
         .then(resp => {
-            const jsonData = reformat.RefineFlickrResult(resp.data);
-            res.json({
-                data: jsonData,
-                success: true,
-                responseCode: resCode.success
+            xmlTojs(resp.data, function(err, rz) {
+                if (err) {
+                    next(err);
+                } else {
+                    res.json({
+                        data: reformat.RefineFlickrImagesArray(rz.feed.entry),
+                        success: true,
+                        responseCode: resCode.success
+                    });
+                }
             });
         })
         .catch(err => {

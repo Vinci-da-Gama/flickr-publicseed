@@ -1,8 +1,17 @@
 /*jshint esversion: 6 */
-const xmlTojson = require('xml2json');
+const _ = require("lodash");
 
-exports.RefineFlickrResult = (payload) => {
-    const relay = xmlTojson.toJson(payload);
-    console.log('6 -- ', relay);
-    return relay;
+exports.RefineFlickrImagesArray = (payload) => {
+    const imgs = [];
+
+    _.forEach(payload, (elem, idx) => {
+        if (elem.link[1]['$'].href) {
+            const imgObj = {
+                imgHref: elem.link[1]['$'].href
+            };
+            imgs.push(imgObj);
+        }
+    });
+
+    return imgs;
 };
