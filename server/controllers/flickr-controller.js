@@ -1,5 +1,5 @@
 const axios = require('axios');
-var xmlTojs = require('xml2js').parseString;
+const xmlTojs = require('xml2js').parseString;
 
 const resCode = require('../../consts/responseCode');
 const reformat = require('../../helpers/response/reformat');
@@ -7,7 +7,7 @@ const reformat = require('../../helpers/response/reformat');
 const GetFlickr = async(req, res, next) => {
     await axios.get('https://api.flickr.com/services/feeds/photos_public.gne')
         .then(resp => {
-            xmlTojs(resp.data, function(err, rz) {
+            xmlTojs(resp.data, (err, rz) => {
                 if (err) {
                     next(err);
                 } else {
@@ -30,7 +30,7 @@ const SearchByText = async(req, res, next) => {
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=edc0dcfb15e1c7b098d7e0e3c19515e8&text=${term}&content_type=7&per_page=20`;
     await axios.get(url)
         .then(resp => {
-            xmlTojs(resp.data, function(err, rz) {
+            xmlTojs(resp.data, (err, rz) => {
                 if (err) {
                     next(err);
                 } else {
