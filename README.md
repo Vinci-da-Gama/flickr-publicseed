@@ -9,3 +9,4 @@ return photos according to search terms
 
 # AWS
 - It also be deployed in EC2
+- url is: http://ec2-13-250-99-71.ap-southeast-1.compute.amazonaws.com/
