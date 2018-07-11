@@ -21,12 +21,10 @@ exports.RefineSearchPhotos = (payload) => {
 
     if (payload.length > 0) {
         _.forEach(payload, (elem) => {
+            // sample url ==> https://farm1.staticflickr.com/834/29470570898_316ba75f36.jpg --> 1: farm, 834: server, 29470570898: id, 316ba75f36: secret
             const photoObj = {
-                farm: elem['$'].farm,
-                server: elem['$'].server,
-                id: elem['$'].id,
-                secret: elem['$'].secret
-            };
+                imgHref: `https://farm${elem['$'].farm}.staticflickr.com/${elem['$'].server}/${elem['$'].id}_${elem['$'].secret}.jpg`
+            }
             photos.push(photoObj);
         });
     }

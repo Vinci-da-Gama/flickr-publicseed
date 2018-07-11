@@ -24,7 +24,6 @@ const GetFlickr = async(req, res, next) => {
         });
 };
 
-// https://farm1.staticflickr.com/834/29470570898_316ba75f36.jpg --> 1: farm, 834: server, 29470570898: id, 316ba75f36: secret
 // url: https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=edc0dcfb15e1c7b098d7e0e3c19515e8&text=ice&content_type=7&format=json&per_page=20
 const SearchByText = async(req, res, next) => {
     const term = reformat.trimTerm(req.params['term']);
