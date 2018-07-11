@@ -36,6 +36,7 @@ const SearchByText = async(req, res, next) => {
                     next(err);
                 } else {
                     res.json({
+                        // return img urls collection
                         data: reformat.RefineSearchPhotos(rz.rsp.photos[0].photo),
                         success: true,
                         responseCode: resCode.success
