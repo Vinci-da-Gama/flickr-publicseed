@@ -16,7 +16,7 @@ exports.RefineFlickrImagesArray = (payload) => {
     return imgs;
 };
 
-exports.RefineSearchPhotos = async(payload) => {
+exports.RefineSearchPhotos = (payload) => {
     const photos = [];
 
     if (payload !== undefined && payload.length > 0) {
@@ -29,6 +29,6 @@ exports.RefineSearchPhotos = async(payload) => {
         });
     }
 
-    await return photos;
+    return photos;
 
 };
