@@ -9,7 +9,7 @@ exports.handleRes = (req, res, result) => {
     if (term !== '') {
         res.json({
             // return img urls collection -- reformat.RefineSearchPhotos(result.rsp.photos[0].photo)
-            data: reformat.RefineSearchPhotos(result.rsp.photos[0].photo),
+            data: result.rsp.photos,
             success: true,
             responseCode: resCode.success
         });
