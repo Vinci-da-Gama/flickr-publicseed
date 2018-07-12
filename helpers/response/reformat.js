@@ -32,7 +32,3 @@ exports.RefineSearchPhotos = (payload) => {
     return photos;
 
 };
-
-exports.trimTerm = (term) => {
-    return _.trimStart(_.trimEnd(term));
-};
