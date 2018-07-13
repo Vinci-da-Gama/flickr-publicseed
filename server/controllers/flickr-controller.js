@@ -36,7 +36,12 @@ const SearchByText = async(req, res, next) => {
                             next(err);
                             break;
                         case 'ok':
-                            response.handleRes(req, res, rz);
+                            if (rz.rsp.photos[0].hasOwnProperty('photo')) {
+                                response.handleRes(req, res, rz.rsp.photos[0].photo);
+                            } else {
+                                const err = new Error('Api doesnot return any photo. Register one new Api key will solve this problem.');
+                                next(err);
+                            }
                             break;
                         default:
                             break;

@@ -10,7 +10,7 @@ exports.handleRes = (req, res, result) => {
         res.json({
             // return img urls collection -- reformat.RefineSearchPhotos(result.rsp.photos[0].photo)
             // sometimes, API (flickr.photos.search) will not return photos, need new Api Key
-            data: reformat.RefineSearchPhotos(result.rsp.photos[0].photo),
+            data: reformat.RefineSearchPhotos(result),
             success: true,
             responseCode: resCode.success
         });
