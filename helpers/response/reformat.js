@@ -7,7 +7,7 @@ exports.RefineFlickrImagesArray = (payload) => {
     _.forEach(payload, (elem, idx) => {
         if (elem.link[1]['$'].href) {
             const imgObj = {
-                imgPath: elem.link[1]['$'].href
+                imgPath: (elem.link[1]['$'].href.includes('.jpg'))? elem.link[1]['$'].href : 'https://www.designontextile.com/js/awant/design/core_img/no_image_available.256.png'
             };
             imgs.push(imgObj);
         }
