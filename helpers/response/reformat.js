@@ -7,7 +7,7 @@ exports.RefineFlickrImagesArray = (payload) => {
     _.forEach(payload, (elem, idx) => {
         if (elem.link[1]['$'].href) {
             const imgObj = {
-                imgHref: elem.link[1]['$'].href
+                imgPath: elem.link[1]['$'].href
             };
             imgs.push(imgObj);
         }
@@ -23,7 +23,7 @@ exports.RefineSearchPhotos = (payload) => {
         _.forEach(payload, (elem) => {
             // sample url ==> https://farm1.staticflickr.com/834/29470570898_316ba75f36.jpg --> 1: farm, 834: server, 29470570898: id, 316ba75f36: secret
             const photoObj = {
-                imgHref: `https://farm${elem['$'].farm}.staticflickr.com/${elem['$'].server}/${elem['$'].id}_${elem['$'].secret}.jpg`
+                imgPath: `https://farm${elem['$'].farm}.staticflickr.com/${elem['$'].server}/${elem['$'].id}_${elem['$'].secret}.jpg`
             };
             photos.push(photoObj);
         });
