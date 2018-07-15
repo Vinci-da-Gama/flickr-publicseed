@@ -4,7 +4,7 @@ return photos according to search terms
 
 # Test locally
 - git clone this project https://github.com/Vinci-da-Gama/flickr-publicseed.git
-- open the project folder, then npm i
+- open the project folder, then npm i or yarn install
 - npm start
 
 # AWS
